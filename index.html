@@ -101,7 +101,9 @@
         }
 
         .apps a {
-            display: block;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
             padding: 1.25rem;
             border: 1px solid #1a1a1a;
             border-radius: 12px;
@@ -118,6 +120,17 @@
             box-shadow: 0 8px 24px rgba(var(--accent-rgb), 0.12);
             background: #141414;
             text-decoration: none;
+        }
+
+        .app-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            flex-shrink: 0;
+        }
+
+        .app-info {
+            min-width: 0;
         }
 
         .app-name {
@@ -148,34 +161,52 @@
         <div class="divider"></div>
         <ul class="apps">
             <li><a href="/shed/" style="--accent: #538C64; --accent-rgb: 83, 140, 100;">
-                <div class="app-name">Shed</div>
-                <div class="app-type">Reptile Tracker</div>
-                <div class="app-tagline">Log feedings in 2 taps. Spot health trends early.</div>
+                <img class="app-icon" src="/icons/shed.png" alt="Shed icon">
+                <div class="app-info">
+                    <div class="app-name">Shed</div>
+                    <div class="app-type">Reptile Tracker</div>
+                    <div class="app-tagline">Log feedings in 2 taps. Spot health trends early.</div>
+                </div>
             </a></li>
             <li><a href="/frag/" style="--accent: #5BB5A2; --accent-rgb: 91, 181, 162;">
-                <div class="app-name">Frag</div>
-                <div class="app-type">Reef Tank Manager</div>
-                <div class="app-tagline">Track water params in seconds. Stop guessing.</div>
+                <img class="app-icon" src="/icons/frag.png" alt="Frag icon">
+                <div class="app-info">
+                    <div class="app-name">Frag</div>
+                    <div class="app-type">Reef Tank Manager</div>
+                    <div class="app-tagline">Track water params in seconds. Stop guessing.</div>
+                </div>
             </a></li>
             <li><a href="/chaff/" style="--accent: #D4A574; --accent-rgb: 212, 165, 116;">
-                <div class="app-name">Chaff</div>
-                <div class="app-type">Coffee Roast Log</div>
-                <div class="app-tagline">Reproduce your best roasts every time.</div>
+                <img class="app-icon" src="/icons/chaff.png" alt="Chaff icon">
+                <div class="app-info">
+                    <div class="app-name">Chaff</div>
+                    <div class="app-type">Coffee Roast Log</div>
+                    <div class="app-tagline">Reproduce your best roasts every time.</div>
+                </div>
             </a></li>
             <li><a href="/pinset/" style="--accent: #A67C3D; --accent-rgb: 166, 124, 61;">
-                <div class="app-name">Pinset</div>
-                <div class="app-type">Mushroom Grow Tracker</div>
-                <div class="app-tagline">From inoculation to harvest. Every batch tracked.</div>
+                <img class="app-icon" src="/icons/pinset.png" alt="Pinset icon">
+                <div class="app-info">
+                    <div class="app-name">Pinset</div>
+                    <div class="app-type">Mushroom Grow Tracker</div>
+                    <div class="app-tagline">From inoculation to harvest. Every batch tracked.</div>
+                </div>
             </a></li>
             <li><a href="/locus/" style="--accent: #E8845C; --accent-rgb: 232, 132, 92;">
-                <div class="app-name">Locus</div>
-                <div class="app-type">Focus Timer</div>
-                <div class="app-tagline">Deep work that feels rewarding. No gimmicks.</div>
+                <img class="app-icon" src="/icons/locus.png" alt="Locus icon">
+                <div class="app-info">
+                    <div class="app-name">Locus</div>
+                    <div class="app-type">Focus Timer</div>
+                    <div class="app-tagline">Deep work that feels rewarding. No gimmicks.</div>
+                </div>
             </a></li>
             <li><a href="/resurface/" style="--accent: #7B9EC9; --accent-rgb: 123, 158, 201;">
-                <div class="app-name">Resurface</div>
-                <div class="app-type">Save for Later</div>
-                <div class="app-tagline">The right things resurface at the right time.</div>
+                <img class="app-icon" src="/icons/resurface.png" alt="Resurface icon">
+                <div class="app-info">
+                    <div class="app-name">Resurface</div>
+                    <div class="app-type">Save for Later</div>
+                    <div class="app-tagline">The right things resurface at the right time.</div>
+                </div>
             </a></li>
         </ul>
     </div>
