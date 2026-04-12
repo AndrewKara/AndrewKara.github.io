@@ -15,6 +15,21 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            overflow-x: hidden;
+        }
+
+        /* Radial glow behind the header */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 400px;
+            background: radial-gradient(ellipse at center, rgba(74, 124, 89, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
         }
 
         .container {
@@ -22,29 +37,39 @@
             width: 100%;
             padding: 2rem;
             text-align: center;
+            position: relative;
+            z-index: 1;
         }
 
         h1 {
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: 700;
-            letter-spacing: -0.02em;
+            letter-spacing: -0.03em;
             margin-bottom: 0.5rem;
-            background: linear-gradient(135deg, #fff 0%, #888 100%);
+            background: linear-gradient(135deg, #fff 0%, #999 50%, #fff 100%);
+            background-size: 200% 200%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            animation: shimmer 6s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
         .tagline {
-            color: #666;
-            margin-bottom: 2.5rem;
-            font-size: 1rem;
+            color: #555;
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+            letter-spacing: 0.02em;
         }
 
         .divider {
             width: 40px;
             height: 1px;
-            background: #333;
+            background: linear-gradient(90deg, transparent, #333, transparent);
             margin: 0 auto 2.5rem;
         }
 
@@ -59,21 +84,40 @@
             .apps { grid-template-columns: 1fr 1fr; }
         }
 
+        .apps li {
+            opacity: 0;
+            transform: translateY(12px);
+            animation: fadeUp 0.4s ease forwards;
+        }
+        .apps li:nth-child(1) { animation-delay: 0.05s; }
+        .apps li:nth-child(2) { animation-delay: 0.1s; }
+        .apps li:nth-child(3) { animation-delay: 0.15s; }
+        .apps li:nth-child(4) { animation-delay: 0.2s; }
+        .apps li:nth-child(5) { animation-delay: 0.25s; }
+        .apps li:nth-child(6) { animation-delay: 0.3s; }
+
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         .apps a {
             display: block;
-            padding: 1.25rem 1rem;
+            padding: 1.25rem 1rem 1.25rem 1.25rem;
             border: 1px solid #1a1a1a;
+            border-left: 3px solid var(--accent);
             border-radius: 12px;
             background: #111;
             text-decoration: none;
             color: #e0e0e0;
-            transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+            text-align: left;
+            transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s, background 0.25s;
         }
 
         .apps a:hover {
-            border-color: #4A7C59;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 20px rgba(74, 124, 89, 0.1);
+            border-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(var(--accent-rgb), 0.12);
+            background: #141414;
             text-decoration: none;
         }
 
@@ -81,12 +125,20 @@
             font-size: 1.1rem;
             font-weight: 600;
             color: #fff;
-            margin-bottom: 0.25rem;
+            margin-bottom: 0.2rem;
         }
 
-        .app-desc {
-            font-size: 0.85rem;
-            color: #666;
+        .app-type {
+            font-size: 0.8rem;
+            color: var(--accent);
+            margin-bottom: 0.4rem;
+            font-weight: 500;
+        }
+
+        .app-tagline {
+            font-size: 0.8rem;
+            color: #555;
+            line-height: 1.4;
         }
     </style>
 </head>
@@ -96,29 +148,35 @@
         <p class="tagline">Small, focused apps.</p>
         <div class="divider"></div>
         <ul class="apps">
-            <li><a href="/shed/">
+            <li><a href="/shed/" style="--accent: #538C64; --accent-rgb: 83, 140, 100;">
                 <div class="app-name">Shed</div>
-                <div class="app-desc">Reptile Tracker</div>
+                <div class="app-type">Reptile Tracker</div>
+                <div class="app-tagline">Log feedings in 2 taps. Spot health trends early.</div>
             </a></li>
-            <li><a href="/frag/">
+            <li><a href="/frag/" style="--accent: #5BB5A2; --accent-rgb: 91, 181, 162;">
                 <div class="app-name">Frag</div>
-                <div class="app-desc">Reef Tank Manager</div>
+                <div class="app-type">Reef Tank Manager</div>
+                <div class="app-tagline">Track water params in seconds. Stop guessing.</div>
             </a></li>
-            <li><a href="/chaff/">
+            <li><a href="/chaff/" style="--accent: #D4A574; --accent-rgb: 212, 165, 116;">
                 <div class="app-name">Chaff</div>
-                <div class="app-desc">Coffee Roast Log</div>
+                <div class="app-type">Coffee Roast Log</div>
+                <div class="app-tagline">Reproduce your best roasts every time.</div>
             </a></li>
-            <li><a href="/pinset/">
+            <li><a href="/pinset/" style="--accent: #A67C3D; --accent-rgb: 166, 124, 61;">
                 <div class="app-name">Pinset</div>
-                <div class="app-desc">Mushroom Grow Tracker</div>
+                <div class="app-type">Mushroom Grow Tracker</div>
+                <div class="app-tagline">From inoculation to harvest. Every batch tracked.</div>
             </a></li>
-            <li><a href="/locus/">
+            <li><a href="/locus/" style="--accent: #E8845C; --accent-rgb: 232, 132, 92;">
                 <div class="app-name">Locus</div>
-                <div class="app-desc">Focus Timer</div>
+                <div class="app-type">Focus Timer</div>
+                <div class="app-tagline">Deep work that feels rewarding. No gimmicks.</div>
             </a></li>
-            <li><a href="/resurface/">
+            <li><a href="/resurface/" style="--accent: #7B9EC9; --accent-rgb: 123, 158, 201;">
                 <div class="app-name">Resurface</div>
-                <div class="app-desc">Save for Later</div>
+                <div class="app-type">Save for Later</div>
+                <div class="app-tagline">The right things resurface at the right time.</div>
             </a></li>
         </ul>
     </div>
