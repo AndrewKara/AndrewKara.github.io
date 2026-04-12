@@ -6,24 +6,27 @@
     <title>Shed: Reptile Tracker — Support</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #e0e0e0; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #161616; color: #e0e0e0; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
         .container { max-width: 480px; padding: 2rem; }
         h1 { font-size: 1.5rem; margin-bottom: 0.25rem; color: #fff; }
         .subtitle { color: #538C64; margin-bottom: 1.5rem; }
-        p { color: #aaa; line-height: 1.6; margin-bottom: 1.25rem; }
-        h2 { font-size: 1.1rem; color: #fff; margin-bottom: 0.5rem; margin-top: 1.5rem; }
+        .intro { color: #aaa; line-height: 1.6; margin-bottom: 1.5rem; }
         a { color: #538C64; text-decoration: none; }
         a:hover { text-decoration: underline; }
         .back { display: inline-block; margin-top: 2rem; color: #666; font-size: 0.9rem; }
-        .screenshots { display: flex; gap: 8px; overflow-x: auto; margin: 1.5rem 0; padding-bottom: 8px; }
+        .screenshots { display: flex; gap: 8px; overflow-x: auto; margin: 0 0 1.5rem; padding-bottom: 8px; }
         .screenshots img { height: 320px; border-radius: 12px; flex-shrink: 0; }
+        .panel { background: #1e1e1e; border: 1px solid #252525; border-radius: 12px; padding: 1.25rem; margin-bottom: 0.75rem; }
+        .panel h2 { font-size: 1rem; color: #fff; margin-bottom: 0.5rem; }
+        .panel p { color: #aaa; line-height: 1.6; margin-bottom: 0.75rem; font-size: 0.9rem; }
+        .panel p:last-child { margin-bottom: 0; }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Shed</h1>
         <div class="subtitle">Reptile Tracker</div>
-        <p>Track your reptiles' feeding, shedding, weight, and enclosure conditions. The husbandry app that doesn't crash, doesn't charge monthly, and works offline.</p>
+        <p class="intro">Track your reptiles' feeding, shedding, weight, and enclosure conditions. The husbandry app that doesn't crash, doesn't charge monthly, and works offline.</p>
 
         <div class="screenshots">
             <img src="images/01-log-feedings.png" alt="Log feedings in 2 taps">
@@ -31,12 +34,16 @@
             <img src="images/03-never-miss.png" alt="Never miss a feeding">
         </div>
 
-        <h2>Support</h2>
-        <p>Having an issue or have a feature request? Email us at <a href="mailto:apqlabs@gmail.com">apqlabs@gmail.com</a> and we'll get back to you.</p>
+        <div class="panel">
+            <h2>Support</h2>
+            <p>Having an issue or have a feature request? Email us at <a href="mailto:apqlabs@gmail.com">apqlabs@gmail.com</a> and we'll get back to you.</p>
+        </div>
 
-        <h2>Privacy</h2>
-        <p>Shed stores all your animal data locally on your device. We do not require accounts and your collection data never leaves your phone.</p>
-        <p>We collect anonymous usage analytics (e.g. which features are used, app opens) via PostHog to improve the app. This data is not linked to your identity and contains no personal information. No advertising trackers are used.</p>
+        <div class="panel">
+            <h2>Privacy</h2>
+            <p>Shed stores all your animal data locally on your device. We do not require accounts and your collection data never leaves your phone.</p>
+            <p>We collect anonymous usage analytics (e.g. which features are used, app opens) via PostHog to improve the app. This data is not linked to your identity and contains no personal information. No advertising trackers are used.</p>
+        </div>
 
         <a class="back" href="/">&larr; APQ Labs</a>
     </div>
